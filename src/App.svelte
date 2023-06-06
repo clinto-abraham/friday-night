@@ -1,0 +1,2013 @@
+<script>
+  import Counter from "./lib/Counter.svelte";
+
+  // const tabs = document.querySelectorAll(".tab");
+  // const panels = document.querySelectorAll(".panel");
+  // const btn = document.getElementById("menu-btn");
+  // const menu = document.getElementById("menu");
+  // const logo = document.getElementById("logo");
+
+  // // Tabs menu event listener
+  // tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
+
+  // // Hamburger button listener
+  // btn.addEventListener("click", navToggle);
+
+  // function onTabClick(e) {
+  //   // Deactivate all tabs
+  //   tabs.forEach((tab) => {
+  //     tab.children[0].classList.remove(
+  //       "border-softRed",
+  //       "border-b-4",
+  //       "md:border-b-0"
+  //     );
+  //   });
+
+  //   // Hide all panels
+  //   panels.forEach((panel) => panel.classList.add("hidden"));
+
+  //   // Activate a new tab and panel based on the target
+  //   e.target.classList.add("border-softRed", "border-b-4");
+  //   const classString = e.target.getAttribute("data-target");
+  //   document
+  //     .getElementById("panels")
+  //     .getElementsByClassName(classString)[0]
+  //     .classList.remove("hidden");
+  // }
+
+  // function navToggle() {
+  //   btn.classList.toggle("open");
+  //   menu.classList.toggle("flex");
+  //   menu.classList.toggle("hidden");
+
+  //   if (menu.classList.contains("flex")) {
+  //     logo.setAttribute("src", "./images/logo-bookmark-footer.svg");
+  //   } else {
+  //     logo.setAttribute("src", "./images/logo-bookmark.svg");
+  //   }
+  // }
+</script>
+
+<main>
+  <div class="overflow-x-hidden">
+    <nav class="container relative mx-auto p-6">
+      <!-- Flex Container For Nav Items -->
+      <div class="flex items-center justify-between space-x-20 my-6">
+        <!-- Logo -->
+        <div class="z-30">
+          <img src="logo-bookmark.svg" alt="" id="logo" />
+        </div>
+
+        <!-- Menu Items -->
+        <div
+          class="hidden items-center space-x-10 uppercase text-grayishBlue md:flex"
+        >
+          <a href="/features" class="tracking-widest hover:text-softRed"
+            >Features</a
+          >
+          <a href="/download" class="tracking-widest hover:text-softRed"
+            >Download</a
+          >
+          <a href="/faq" class="tracking-widest hover:text-softRed">FAQ</a>
+
+          <a
+            href="/"
+            class="px-8 py-2 text-white bg-softRed border-2 border-softRed rounded-lg shadow-md hover:text-softRed hover:bg-white"
+            >Login</a
+          >
+        </div>
+        <!-- Hamburger Button -->
+        <button
+          id="menu-btn"
+          class="z-30 block md:hidden focus:outline-none hamburger"
+        >
+          <span class="hamburger-top" />
+          <span class="hamburger-middle" />
+          <span class="hamburger-bottom" />
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="menu"
+        class="fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-veryDarkBlue"
+      >
+        <div class="w-full py-3 text-center">
+          <a href="/features" class="block hover:text-softRed">Features</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a href="/download" class="block hover:text-softRed">Download</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a href="/faq" class="block hover:text-softRed">FAQ</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a href="/" class="block hover:text-softRed">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <!-- Container For Image & Content -->
+      <div
+        class="container flex flex-col-reverse mx-auto p-6 lg:flex-row lg:mb-0"
+      >
+        <!-- Content -->
+        <div class="flex flex-col space-y-10 lg:mt-16 lg:w-1/2">
+          <h1
+            class="text-3xl font-semibold text-center lg:text-6xl lg:text-left"
+          >
+            A Simple Bookmark Manager
+          </h1>
+          <p
+            class="max-w-md mx-auto text-lg text-center text-gray-400 lg:text-2xl lg:text-left lg:mt-0 lg:mx-0"
+          >
+            A clean and simple interface to organize your favourite websites.
+            Open a new browser tab and see your sites load instantly. Try it for
+            free.
+          </p>
+
+          <!-- Buttons Container -->
+          <div
+            class="flex items-center justify-center w-full space-x-4 lg:justify-start"
+          >
+            <a
+              href="/"
+              class="p-4 text-sm font-semibold text-white bg-softBlue rounded shadow-md border-2 border-softBlue md:text-base hover:bg-white hover:text-softBlue"
+              >Get It On Chrome</a
+            >
+            <a
+              href="/"
+              class="p-4 text-sm font-semibold text-black bg-gray-300 rounded shadow-md border-2 border-gray-300 md:text-base hover:bg-white hover:text-gray-600"
+              >Get It On Firefox</a
+            >
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative mx-auto lg:mx-0 lg:mb-0 lg:w-1/2">
+          <div class="bg-hero" />
+          <img
+            src="illustration-hero.svg"
+            alt=""
+            class="relative z-10 lg:top-24 xl:top-0 overflow-x-visible"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Heading -->
+    <section id="features">
+      <div class="container mx-auto mt-16 px-6">
+        <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+        <p class="max-w-md mx-auto text-center text-grayishBlue">
+          Our aim is to make it quick and easy for you to access your favourite
+          websites. Your bookmarks sync between your devices so you can access
+          them on the go.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Tabs -->
+    <section id="tabs">
+      <!-- Tabs/Panels Container -->
+      <div class="container relative mx-auto my-6 mb-32 mt-12 px-6">
+        <div class="bg-tabs" />
+        <!-- Tabs Flex Container -->
+        <div
+          class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row"
+        >
+          <!-- Tab 1 -->
+          <div
+            class="flex justify-center text-center cursor-pointer text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3 tab"
+            data-target="panel-1"
+          >
+            <div class="py-5 border-b-4 border-softRed" data-target="panel-1">
+              Simple Bookmarking
+            </div>
+          </div>
+
+          <!-- Tab 2 -->
+          <div
+            class="flex justify-center text-center cursor-pointer text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3 tab"
+            data-target="panel-2"
+          >
+            <div class="py-5" data-target="panel-2">Speedy Searching</div>
+          </div>
+
+          <!-- Tab 3 -->
+          <div
+            class="flex justify-center text-center cursor-pointer text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3 tab"
+            data-target="panel-3"
+          >
+            <div class="py-5" data-target="panel-3">Easy Sharing</div>
+          </div>
+        </div>
+
+        <!-- Tab Panels -->
+        <div id="panels" class="container mx-auto">
+          <!-- Panel 1 -->
+          <div
+            class="flex flex-col py-5 md:flex-row md:space-x-7 panel panel-1"
+          >
+            <!-- Panel Image -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="illustration-features-tab-1.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-32 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Bookmark in one click
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Organize your bookmarks however you like. Our simple
+                drag-and-drop interface gives you complete control over how you
+                manage your favourite sites.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="/"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2 -->
+          <div
+            class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-2"
+          >
+            <!-- Panel Image -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="illustration-features-tab-2.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-14 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Intelligent search
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Our powerful search feature will help you find saved sites in no
+                time at all. No need to trawl through all of your bookmarks.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="/"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3 -->
+          <div
+            class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-3"
+          >
+            <!-- Panel Image -->
+            <div class="flex justify-center md:w-1/2">
+              <img
+                src="illustration-features-tab-3.svg"
+                alt=""
+                class="relative z-10"
+              />
+            </div>
+            <!-- Panel Content -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <h3
+                class="mt-14 text-3xl font-semibold text-center md:mt-0 md:text-left"
+              >
+                Share your bookmarks
+              </h3>
+              <p class="max-w-md text-center text-grayishBlue md:text-left">
+                Easily share your bookmarks and collections with others. Create
+                a shareable a link that you can send at the click of a button.
+              </p>
+              <div class="mx-auto md:mx-0">
+                <a
+                  href="/"
+                  class="px-6 py-3 mt-4 font-semibold text-white border-2 border-white rounded-lg md:inline-flex bg-softBlue hover:bg-white hover:text-softBlue hover:border-softBlue hover:border-2"
+                  >More Info</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Heading -->
+    <section id="download">
+      <div class="container mx-auto px-6">
+        <h2 class="mb-6 text-3xl font-semibold text-center md:text-4xl">
+          Download the extension
+        </h2>
+        <p class="max-w-lg mx-auto text-center text-grayishBlue">
+          We've got more browsers in the pipeline. Please do let us know if
+          you've got a favourite you'd like us to prioritize.
+        </p>
+      </div>
+    </section>
+
+    <!-- Download Boxes -->
+    <section id="download-boxes" class="py-32">
+      <!-- Boxes Container -->
+      <div
+        class="relative flex flex-col items-center max-w-5xl mx-auto space-y-10 px-10 md:px-6 md:space-y-0 md:space-x-7 md:flex-row"
+      >
+        <!-- Box 1 -->
+        <div
+          class="flex flex-col w-full py-6 space-y-4 text-center rounded-lg shadow-lg md:w-1/3"
+        >
+          <!-- Image -->
+          <div class="flex justify-center">
+            <img src="logo-chrome.svg" alt="" />
+          </div>
+          <!-- Text -->
+          <h5 class="pt-6 text-xl font-bold">Add to Chrome</h5>
+          <p class="text-gray-400">Minimum Version 62</p>
+
+          <!-- Dots -->
+          <div class="bg-dots bg-repeat-x px-6 pt-6 capitalize">
+            <a
+              href="/"
+              class="block w-full py-3 text-white duration-200 border-2 rounded-lg bg-softBlue hover:text-softBlue hover:bg-white border-softBlue"
+              >Add & Install Extension</a
+            >
+          </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="w-full md:w-1/3">
+          <div
+            class="flex flex-col w-full py-6 space-y-4 text-center rounded-lg shadow-lg md:mt-8"
+          >
+            <!-- Image -->
+            <div class="flex justify-center">
+              <img src="logo-firefox.svg" alt="" />
+            </div>
+            <!-- Text -->
+            <h5 class="pt-6 text-xl font-bold">Add to Firefox</h5>
+            <p class="text-gray-400">Minimum Version 55</p>
+
+            <!-- Dots -->
+            <div class="bg-dots bg-repeat-x px-6 pt-6 capitalize">
+              <a
+                href="/"
+                class="block w-full py-3 text-white duration-200 border-2 rounded-lg bg-softBlue hover:text-softBlue hover:bg-white border-softBlue"
+                >Add & Install Extension</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="w-full md:w-1/3">
+          <div
+            class="flex flex-col w-full py-6 space-y-4 text-center rounded-lg shadow-lg md:mt-16"
+          >
+            <!-- Image -->
+            <div class="flex justify-center">
+              <img src="logo-opera.svg" alt="" />
+            </div>
+            <!-- Text -->
+            <h5 class="pt-6 text-xl font-bold">Add to Opera</h5>
+            <p class="text-gray-400">Minimum Version 46</p>
+
+            <!-- Dots -->
+            <div class="bg-dots bg-repeat-x px-6 pt-6 capitalize">
+              <a
+                href="/"
+                class="block w-full py-3 text-white duration-200 border-2 rounded-lg bg-softBlue hover:text-softBlue hover:bg-white border-softBlue"
+                >Add & Install Extension</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Heading -->
+    <section id="faq">
+      <div class="container mx-auto">
+        <h2 class="mb-6 text-3xl font-semibold text-center md:text-4xl">
+          Frequently Asked Questions
+        </h2>
+        <p class="max-w-lg px-6 mx-auto text-center text-graishBlue">
+          Here are some of our FAQs. If you have any other questions you'd like
+          answered please feel free to email us.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq-accordion">
+      <!-- Main Container -->
+      <div class="container mx-auto px-6 mb-32">
+        <!-- Accordion Container -->
+        <div class="max-w-2xl m-8 mx-auto overflow-hidden">
+          <!-- Tab 1 -->
+          <div class="py-1 border-b outline-none group" tabindex="-1">
+            <!-- Tab Flex Container -->
+            <div
+              class="flex items-center justify-between py-3 text-gray-500 transition duration-500 cursor-pointer group ease"
+            >
+              <!-- Tab Title -->
+              <div
+                class="transition duration-500 ease group-hover:text-red-500"
+              >
+                What is Bookmark?
+              </div>
+              <!-- Arrow -->
+              <div
+                class="transition duration-500 ease group-focus:-rotate-180 group-focus:text-red-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    d="M1 1l8 8 8-8"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Tab Inner Content -->
+            <div
+              class="overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0 ease"
+            >
+              <p class="py-2 text-justify text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                repellat amet doloribus consequuntur eos similique provident
+                tempora voluptates iure quia fuga dicta voluptatibus culpa
+                mollitia recusandae delectus id suscipit labore?
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab 2 -->
+          <div class="py-1 border-b outline-none group" tabindex="-2">
+            <!-- Tab Flex Container -->
+            <div
+              class="flex items-center justify-between py-3 text-gray-500 transition duration-500 cursor-pointer group ease"
+            >
+              <!-- Tab Title -->
+              <div
+                class="transition duration-500 ease group-hover:text-red-500"
+              >
+                How can I request a new browser?
+              </div>
+              <!-- Arrow -->
+              <div
+                class="transition duration-500 ease group-focus:-rotate-180 group-focus:text-red-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    d="M1 1l8 8 8-8"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Tab Inner Content -->
+            <div
+              class="overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0 ease"
+            >
+              <p class="py-2 text-justify text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                repellat amet doloribus consequuntur eos similique provident
+                tempora voluptates iure quia fuga dicta voluptatibus culpa
+                mollitia recusandae delectus id suscipit labore?
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab 3 -->
+          <div class="py-1 border-b outline-none group" tabindex="-3">
+            <!-- Tab Flex Container -->
+            <div
+              class="flex items-center justify-between py-3 text-gray-500 transition duration-500 cursor-pointer group ease"
+            >
+              <!-- Tab Title -->
+              <div
+                class="transition duration-500 ease group-hover:text-red-500"
+              >
+                Is ther a mobile app?
+              </div>
+              <!-- Arrow -->
+              <div
+                class="transition duration-500 ease group-focus:-rotate-180 group-focus:text-red-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    d="M1 1l8 8 8-8"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Tab Inner Content -->
+            <div
+              class="overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0 ease"
+            >
+              <p class="py-2 text-justify text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                repellat amet doloribus consequuntur eos similique provident
+                tempora voluptates iure quia fuga dicta voluptatibus culpa
+                mollitia recusandae delectus id suscipit labore?
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab 4 -->
+          <div class="py-1 border-b outline-none group" tabindex="-4">
+            <!-- Tab Flex Container -->
+            <div
+              class="flex items-center justify-between py-3 text-gray-500 transition duration-500 cursor-pointer group ease"
+            >
+              <!-- Tab Title -->
+              <div
+                class="transition duration-500 ease group-hover:text-red-500"
+              >
+                What about other Chromium browsers
+              </div>
+              <!-- Arrow -->
+              <div
+                class="transition duration-500 ease group-focus:-rotate-180 group-focus:text-red-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    d="M1 1l8 8 8-8"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Tab Inner Content -->
+            <div
+              class="overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0 ease"
+            >
+              <p class="py-2 text-justify text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                repellat amet doloribus consequuntur eos similique provident
+                tempora voluptates iure quia fuga dicta voluptatibus culpa
+                mollitia recusandae delectus id suscipit labore?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="bg-softBlue">
+      <!-- Main Container -->
+      <div class="max-w-lg mx-auto py-24">
+        <p
+          class="mb-6 text-lg tracking-widest text-center text-white uppercase"
+        >
+          35,000+ Already Joined
+        </p>
+        <h2
+          class="px-3 mb-6 text-3xl font-semibold text-center text-white md:text-4xl"
+        >
+          Stay up-to-date with what we're doing
+        </h2>
+
+        <!-- Form -->
+        <form
+          class="flex flex-col items-start justify-center max-w-2xl mx-auto space-y-6 text-base px-6 md:flex-row md:space-y-0 md:space-x-4 md:px-0"
+        >
+          <!-- Input & Button Container -->
+          <div
+            class="flex flex-col justify-between items-center mx-auto md:flex-row md:mx-0"
+          >
+            <input
+              type="text"
+              class="flex-1 px-6 pt-3 pb-2 mb-4 rounded-lg border-1 border-white focus:outline-none md:mr-3 md:mb-0"
+              placeholder="Enter your email address"
+            />
+
+            <input
+              type="submit"
+              class="inline-flex px-6 py-3 font-semibold text-center text-white duration-200 transform rounded-lg cursor-pointer focus:outline-none bg-softRed hover:opacity-90"
+              value="Contact Us"
+            />
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-veryDarkBlue">
+      <!-- Footer Flex Container -->
+      <div
+        class="container flex flex-col items-center justify-between mx-auto space-y-16 px-6 md:flex-row md:space-y-0"
+      >
+        <!-- Logo/Menu Container -->
+        <div
+          class="flex flex-col items-center justify-between space-y-8 text-lg font-light md:flex-row md:space-y-0 md:space-x-14 text-grayishBlue"
+        >
+          <img src="logo-bookmark-footer.svg" alt="" class="mb-1" />
+
+          <a href="/features" class="uppercase hover:text-softRed">Features</a>
+          <a href="/download" class="uppercase hover:text-softRed">Download</a>
+          <a href="/faq" class="uppercase hover:text-softRed">FAQ</a>
+        </div>
+
+        <Counter />
+
+        <!-- Social Container -->
+        <div class="flex space-x-10">
+          <a href="/">
+            <img src="icon-facebook.svg" alt="" class="h-6 ficon" />
+          </a>
+          <a href="/">
+            <img src="icon-twitter.svg" alt="" class="h-6 ficon" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<style>
+  /*
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
+*/
+
+  /*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    /* 1 */
+    border-width: 0;
+    /* 2 */
+    border-style: solid;
+    /* 2 */
+    border-color: #e5e7eb;
+    /* 2 */
+  }
+
+  ::before,
+  ::after {
+    --tw-content: "";
+  }
+
+  /*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+  html {
+    line-height: 1.5;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    -moz-tab-size: 4;
+    /* 3 */
+    -o-tab-size: 4;
+    tab-size: 4;
+    /* 3 */
+    font-family: Rubik, sans-serif;
+    /* 4 */
+  }
+
+  /*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+  body {
+    margin: 0;
+    /* 1 */
+    line-height: inherit;
+    /* 2 */
+  }
+
+  /*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+  hr {
+    height: 0;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    border-top-width: 1px;
+    /* 3 */
+  }
+
+  /*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+
+  /*
+Remove the default font size and weight for headings.
+*/
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  /*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  /*
+Add the correct font weight in Edge and Safari.
+*/
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  /*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+  }
+
+  /*
+Add the correct font size in all browsers.
+*/
+
+  small {
+    font-size: 80%;
+  }
+
+  /*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  /*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+  table {
+    text-indent: 0;
+    /* 1 */
+    border-color: inherit;
+    /* 2 */
+    border-collapse: collapse;
+    /* 3 */
+  }
+
+  /*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: inherit;
+    /* 1 */
+    color: inherit;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    padding: 0;
+    /* 3 */
+  }
+
+  /*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    /* 1 */
+    background-color: transparent;
+    /* 2 */
+    background-image: none;
+    /* 2 */
+  }
+
+  /*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+  :-moz-focusring {
+    outline: auto;
+  }
+
+  /*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  /*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  /*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  /*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+  [type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+  }
+
+  /*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+  }
+
+  /*
+Add the correct display in Chrome and Safari.
+*/
+
+  summary {
+    display: list-item;
+  }
+
+  /*
+Removes the default spacing and border for appropriate elements.
+*/
+
+  blockquote,
+  dl,
+  dd,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  figure,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+Prevent resizing textareas horizontally by default.
+*/
+
+  textarea {
+    resize: vertical;
+  }
+
+  /*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    opacity: 1;
+    /* 1 */
+    color: #9ca3af;
+    /* 2 */
+  }
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    opacity: 1;
+    /* 1 */
+    color: #9ca3af;
+    /* 2 */
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 1;
+    /* 1 */
+    color: #9ca3af;
+    /* 2 */
+  }
+
+  /*
+Set the default cursor for buttons.
+*/
+
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  /*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+  :disabled {
+    cursor: default;
+  }
+
+  /*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    /* 1 */
+    vertical-align: middle;
+    /* 2 */
+  }
+
+  /*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
+
+  [hidden] {
+    display: none;
+  }
+
+  *,
+  ::before,
+  ::after {
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast: ;
+    --tw-backdrop-grayscale: ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert: ;
+    --tw-backdrop-opacity: ;
+    --tw-backdrop-saturate: ;
+    --tw-backdrop-sepia: ;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .container {
+      max-width: 480px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    .container {
+      max-width: 1020px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+    }
+  }
+
+  .fixed {
+    position: fixed;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .inset-0 {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .z-30 {
+    z-index: 30;
+  }
+
+  .z-20 {
+    z-index: 20;
+  }
+
+  .z-10 {
+    z-index: 10;
+  }
+
+  .m-8 {
+    margin: 2rem;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .mt-16 {
+    margin-top: 4rem;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .mb-32 {
+    margin-bottom: 8rem;
+  }
+
+  .mt-12 {
+    margin-top: 3rem;
+  }
+
+  .mt-32 {
+    margin-top: 8rem;
+  }
+
+  .mt-4 {
+    margin-top: 1rem;
+  }
+
+  .mt-14 {
+    margin-top: 3.5rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .mb-1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .inline-flex {
+    display: inline-flex;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .h-full {
+    height: 100%;
+  }
+
+  .h-6 {
+    height: 1.5rem;
+  }
+
+  .max-h-0 {
+    max-height: 0px;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .max-w-md {
+    max-width: 28rem;
+  }
+
+  .max-w-xl {
+    max-width: 36rem;
+  }
+
+  .max-w-lg {
+    max-width: 32rem;
+  }
+
+  .max-w-5xl {
+    max-width: 64rem;
+  }
+
+  .max-w-2xl {
+    max-width: 42rem;
+  }
+
+  .flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .transform {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .flex-col-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .items-start {
+    align-items: flex-start;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .space-x-20 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(5rem * var(--tw-space-x-reverse));
+    margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-x-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-y-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+  }
+
+  .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+  }
+
+  .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+  }
+
+  .space-y-16 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+  }
+
+  .divide-y > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  }
+
+  .divide-gray-500 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-opacity: 1;
+    border-color: rgb(107 114 128 / var(--tw-divide-opacity));
+  }
+
+  .self-end {
+    align-self: flex-end;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .overflow-x-visible {
+    overflow-x: visible;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .rounded {
+    border-radius: 0.25rem;
+  }
+
+  .border-2 {
+    border-width: 2px;
+  }
+
+  .border-b {
+    border-bottom-width: 1px;
+  }
+
+  .border-b-4 {
+    border-bottom-width: 4px;
+  }
+
+  .border-softRed {
+    --tw-border-opacity: 1;
+    border-color: hsl(0 94% 66% / var(--tw-border-opacity));
+  }
+
+  .border-softBlue {
+    --tw-border-opacity: 1;
+    border-color: hsl(231 69% 60% / var(--tw-border-opacity));
+  }
+
+  .border-gray-300 {
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219 / var(--tw-border-opacity));
+  }
+
+  .border-white {
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  }
+
+  .bg-softRed {
+    --tw-bg-opacity: 1;
+    background-color: hsl(0 94% 66% / var(--tw-bg-opacity));
+  }
+
+  .bg-veryDarkBlue {
+    --tw-bg-opacity: 1;
+    background-color: hsl(229 31% 21% / var(--tw-bg-opacity));
+  }
+
+  .bg-softBlue {
+    --tw-bg-opacity: 1;
+    background-color: hsl(231 69% 60% / var(--tw-bg-opacity));
+  }
+
+  .bg-gray-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+
+  .bg-dots {
+    background-image: url("../images/bg-dots.svg");
+  }
+
+  .bg-repeat-x {
+    background-repeat: repeat-x;
+  }
+
+  .p-6 {
+    padding: 1.5rem;
+  }
+
+  .p-4 {
+    padding: 1rem;
+  }
+
+  .px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .pt-24 {
+    padding-top: 6rem;
+  }
+
+  .pb-4 {
+    padding-bottom: 1rem;
+  }
+
+  .pt-6 {
+    padding-top: 1.5rem;
+  }
+
+  .pt-3 {
+    padding-top: 0.75rem;
+  }
+
+  .pb-2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-justify {
+    text-align: justify;
+  }
+
+  .text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  .font-light {
+    font-weight: 300;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+
+  .tracking-widest {
+    letter-spacing: 0.1em;
+  }
+
+  .text-grayishBlue {
+    --tw-text-opacity: 1;
+    color: hsl(229 8% 60% / var(--tw-text-opacity));
+  }
+
+  .text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  .text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+
+  .text-gray-600 {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+  }
+
+  .text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+  }
+
+  .opacity-90 {
+    opacity: 0.9;
+  }
+
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+      0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+      0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .transition {
+    transition-property: color, background-color, border-color, fill, stroke,
+      opacity, box-shadow, transform, filter, -webkit-text-decoration-color,
+      -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter, -webkit-text-decoration-color,
+      -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .duration-200 {
+    transition-duration: 200ms;
+  }
+
+  .duration-500 {
+    transition-duration: 500ms;
+  }
+
+  @media (min-width: 1020px) {
+    .bg-hero {
+      width: 2000px;
+      height: 300px;
+      left: 30%;
+      position: absolute;
+      top: 13rem;
+      border-top-left-radius: 9999px;
+      border-bottom-left-radius: 9999px;
+      --tw-bg-opacity: 1;
+      background-color: hsl(231 69% 60% / var(--tw-bg-opacity));
+    }
+
+    .bg-tabs {
+      width: 2000px;
+      height: 300px;
+      right: 60%;
+      position: absolute;
+      top: 15rem;
+      border-top-right-radius: 9999px;
+      border-bottom-right-radius: 9999px;
+      --tw-bg-opacity: 1;
+      background-color: hsl(231 69% 60% / var(--tw-bg-opacity));
+    }
+  }
+
+  .ficon:hover {
+    filter: invert(53%) sepia(38%) saturate(3303%) hue-rotate(326deg)
+      brightness(101%) contrast(96%);
+  }
+
+  /* HAMBURGER MENU */
+
+  .hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+  }
+
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    top: 0;
+    left: 0;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
+
+  .hamburger-bottom {
+    transform: translateY(14px);
+    background: #000;
+  }
+
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+    position: fixed;
+    top: 50px;
+    right: 25px;
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+    background-color: #fff;
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    background-color: #fff;
+  }
+
+  .hover\:border-2:hover {
+    border-width: 2px;
+  }
+
+  .hover\:border-softBlue:hover {
+    --tw-border-opacity: 1;
+    border-color: hsl(231 69% 60% / var(--tw-border-opacity));
+  }
+
+  .hover\:bg-white:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  .hover\:text-softRed:hover {
+    --tw-text-opacity: 1;
+    color: hsl(0 94% 66% / var(--tw-text-opacity));
+  }
+
+  .hover\:text-softBlue:hover {
+    --tw-text-opacity: 1;
+    color: hsl(231 69% 60% / var(--tw-text-opacity));
+  }
+
+  .hover\:text-gray-600:hover {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+  }
+
+  .hover\:opacity-90:hover {
+    opacity: 0.9;
+  }
+
+  .focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .group:hover .group-hover\:text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+  }
+
+  .group:focus .group-focus\:max-h-screen {
+    max-height: 100vh;
+  }
+
+  .group:focus .group-focus\:-rotate-180 {
+    --tw-rotate: -180deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .group:focus .group-focus\:text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+  }
+
+  @media (min-width: 768px) {
+    .md\:mx-0 {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .md\:mt-0 {
+      margin-top: 0px;
+    }
+
+    .md\:mt-8 {
+      margin-top: 2rem;
+    }
+
+    .md\:mt-16 {
+      margin-top: 4rem;
+    }
+
+    .md\:mr-3 {
+      margin-right: 0.75rem;
+    }
+
+    .md\:mb-0 {
+      margin-bottom: 0px;
+    }
+
+    .md\:flex {
+      display: flex;
+    }
+
+    .md\:inline-flex {
+      display: inline-flex;
+    }
+
+    .md\:hidden {
+      display: none;
+    }
+
+    .md\:w-1\/3 {
+      width: 33.333333%;
+    }
+
+    .md\:w-1\/2 {
+      width: 50%;
+    }
+
+    .md\:flex-row {
+      flex-direction: row;
+    }
+
+    .md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+      margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+    }
+
+    .md\:space-x-7 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(1.75rem * var(--tw-space-x-reverse));
+      margin-left: calc(1.75rem * calc(1 - var(--tw-space-x-reverse)));
+    }
+
+    .md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(0px * var(--tw-space-y-reverse));
+    }
+
+    .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(1rem * var(--tw-space-x-reverse));
+      margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+    }
+
+    .md\:space-x-14 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(3.5rem * var(--tw-space-x-reverse));
+      margin-left: calc(3.5rem * calc(1 - var(--tw-space-x-reverse)));
+    }
+
+    .md\:border-b-0 {
+      border-bottom-width: 0px;
+    }
+
+    .md\:px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .md\:px-0 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .md\:text-left {
+      text-align: left;
+    }
+
+    .md\:text-base {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    .md\:text-4xl {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    .lg\:top-24 {
+      top: 6rem;
+    }
+
+    .lg\:mx-0 {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .lg\:mb-0 {
+      margin-bottom: 0px;
+    }
+
+    .lg\:mt-16 {
+      margin-top: 4rem;
+    }
+
+    .lg\:mt-0 {
+      margin-top: 0px;
+    }
+
+    .lg\:w-1\/2 {
+      width: 50%;
+    }
+
+    .lg\:flex-row {
+      flex-direction: row;
+    }
+
+    .lg\:justify-start {
+      justify-content: flex-start;
+    }
+
+    .lg\:text-left {
+      text-align: left;
+    }
+
+    .lg\:text-6xl {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+
+    .lg\:text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .xl\:top-0 {
+      top: 0px;
+    }
+  }
+</style>
